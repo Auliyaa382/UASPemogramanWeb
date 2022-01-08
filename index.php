@@ -7,7 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hello world<d/h1>
-    <p>HAHAHHIHIHI</p>
+    <h2>Detail Transaksi</h2>
+    <br>
+    <br>
+    <?php
+    
+    ?>
 </body>
 </html>
