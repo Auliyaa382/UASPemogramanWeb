@@ -8,10 +8,26 @@
 </head>
 <body>
     <h2>Detail Transaksi</h2>
-    <br>
-    <br>
-    <?php
-    
-    ?>
+<table border="1">
+    <tr>
+        <td>NAMA PRODUK</td>
+        <td>HARGA</td>
+        <td>QTY</td>
+        <td>SUBTOTAL</td>
+
+    </tr>
+        <?php
+        include "koneksi.php";
+        $query = mysqli_query($koneksi, 'SELECT * FROM tbproduk JOIN tbdetail on tbproduk.id_produk=tbdetail.id_produk');
+        while ($data = mysqli_fetch_array($query)) {
+        ?>
+            <tr>
+                <td><?php echo $data['nama_produk'] ?></td>
+                <td><?php echo $data['harga'] ?></td>
+                <td><?php echo 'x'; echo $data['qty'] ?></td>
+                <td><?php echo $data['harga']*$data['qty'] ?></td>
+            </tr>
+        <?php } ?>
+ </table>
 </body>
 </html>
