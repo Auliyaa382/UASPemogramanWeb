@@ -32,8 +32,7 @@
                 <td><?php echo 'x'; echo $data['qty'] ?></td>
                 <td><?php echo $data['harga']*$data['qty'] ?></td>
                 <td>
-                    <a href="edit.php?id=<?php echo $data['id_produk'];?>">EDIT</a>
-                    <a href="hapus.php?id=<?php echo $data['id_produk'];?>">DELETE</a>
+                    <a href="hapus.php?id=<?php echo $data['id_produk'];?>">Hapus</a>
                 </td>
             </tr>
         <?php } ?>
