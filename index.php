@@ -26,7 +26,10 @@
         ?>
         
             <tr>
-                <?php $data['subtotal'] = $data['harga']*$data['qty'] ?>
+                <?php 
+                $idproduk = $data['id_produk'];
+                $data['subtotal'] = $data['harga']*$data['qty']
+                ?>
                 <td><?php echo $n++;?></td>
                 <td><?php echo $data['nama_produk'] ?></td>
                 <td><?php echo $data['harga'] ?></td>
@@ -35,7 +38,11 @@
                 <td>
                     <a href="hapus.php?id=<?php echo $data['id_produk'];?>">Hapus</a>
                 </td>
-                <?php @$total += $data['subtotal']?>
+                <?php
+                    if($data['subtotal'] != 0){
+                @$total += $data['subtotal'];
+                }?>
+                
             </tr>
             
             <!-- <tr>
@@ -45,15 +52,20 @@
             </tr> -->
         <?php } ?>
         <tr>
+        <?php 
+            if(!empty($total)){?>
             <td>TOTAL</td>
             <td></td>
             <td></td>
             <td></td>
-            <td><?php echo $total;?></td>
+            <td>
+               <?php echo $total;
+            }
+            ?></td>
         </tr>
  </table>
             <br>
             <a href="menu.php">Lanjut Belanja</a>
-            <a href="checkout.php">Checkout</a>
+            <a href="pemesanan_berhasil.php">Checkout</a>
 </body>
 </html>
