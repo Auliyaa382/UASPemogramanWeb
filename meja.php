@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
   </head>
  <body>
  <section class="vh-100 gradient-custom">
-   <form action="" method="post">
+   <form action="insertdata.php" method="post">
  <div class="bg-image" style ="background-image: url('bg.jpg'); height: 100vh; ">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">

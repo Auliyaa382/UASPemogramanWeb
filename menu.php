@@ -25,10 +25,10 @@
     <hr>
     <table>
         <?php
+        
         include "koneksi.php";
         $query1 = mysqli_query($koneksi, 'SELECT * FROM tbproduk');
         while ($data1 = mysqli_fetch_assoc($query1)){
-            // echo '<img src="data:image/jpeg;base64,'.base64_encode( $data1['gambar_produk'] ).'"/>';
             $namaproduk=$data1['nama_produk'];
             $harga=$data1['harga'];
             $id = $data1['id_produk'];
@@ -44,29 +44,12 @@
                       <h4><?php echo $namaproduk?><h/4>
                       <div class="btn btn-sm btn-success"><?php echo "Rp. ",number_format($harga,0,",",".")?></div><br>
                </div>
-               <!-- <div class="inputpesan">
-                    <input type="text" name="id" value=<?php echo $id ?>>
-                    <input type="text" name="nama_produk" value=<?php echo $namaproduk ?>>
-                    <input type="text" name="harga" value=<?php echo $harga ?>>
-                    <input type="number" name="qty" min="0" max="100">
-               </div> -->
                <div class="button">  
-            <!-- <input type="submit" name="submit" value="TAMBAH KE KERANJANG"> -->
             <a href="pesan.php?id=<?php echo $id ?>">TAMBAH PESANAN</a>
         </div> 
         </div>
     <?php }?>
-    <!-- <div class="popup" onclick="myFunction()">Click me to toggle the popup!
-  <span class="popuptext" id="myPopup">A Simple Popup!</span>
-</div>
-
-<script>
-// When the user clicks on div, open the popup
-function myFunction() {
-  var popup = document.getElementById("myPopup");
-  popup.classList.toggle("show");
-} -->
-<!-- </script> -->
+    
     </table> 
         </div>
         </main>    
