@@ -26,11 +26,10 @@
         while ($dp = mysqli_fetch_array($datapesan)){
         ?>
         <form method="POST" action="insertpemesanan.php">
-            <?php echo '<img src="data:image/jpeg;base64,'.base64_encode( $dp['gambar_produk'] ).'" style="width:100%;height:100%">';?>
-            <?php echo $dp['nama_produk'];?> 
-            <?php echo "Rp. ",number_format($dp['harga'],0,",",".");?><br> 
-            Qty
-            <input type="number" name=qty>
+            <?php echo '<img src="data:image/jpeg;base64,'.base64_encode( $dp['gambar_produk'] ).'" style="width:100%;height:100%">';?> 
+            <h2><?php echo $dp['nama_produk'];?></h2>
+            <h3><?php echo "Rp. ",number_format($dp['harga'],0,",",".");?></h3><br> 
+            <input type="number" name=qty><br>
             <input type="hidden" name="id" value=<?php echo $id;?>>
             <input type="hidden" name="nama_produk" value="<?php echo $dp['nama_produk']?>">
             <input type="hidden" name="harga" value=<?php echo $dp['harga']?>>

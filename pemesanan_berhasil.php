@@ -7,8 +7,16 @@
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
+<header>
+    <div class="jumbotron">
+            <h1>Jajan Kuy</h1>
+            <p></p>
+        </div>
+    </header>
+    <main>
+    <div class="card">
 <body>
-    <h2>Keranjang Transaksi</h2>
+    <h2>Transaksi Berhasil</h2>
 <table>
     <tr>
         <td>No.</td>
@@ -31,9 +39,9 @@
                 ?>
                 <td><?php echo $n++;?></td>
                 <td><?php echo $data['nama_produk'] ?></td>
-                <td><?php echo $data['harga'] ?></td>
+                <td><?php echo "Rp. ",number_format($data['harga'],0,",",".") ?></td>
                 <td><?php echo $data['qty'] ?></td>
-                <td><?php echo $data['subtotal'] ?></td>
+                <td><?php echo "Rp. ",number_format($data['subtotal'],0,",",".") ?></td>
 
                 <?php
                     if($data['subtotal'] != 0){
@@ -54,12 +62,16 @@
             <td></td>
             <td><?php 
             if(!empty($total)){
-                echo $total;
+                echo "Rp. ",number_format($total,0,",",".");
             }else{
                 echo 0;
             }
             ?></td>
         </tr>
  </table>
+ </main>
+    <footer>
+        <p>Copyright &#169; 2022</p>
+    </footer>
 </body>
 </html>

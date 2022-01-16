@@ -4,10 +4,29 @@
   box-sizing: border-box;
 }
 body{
-  font-family: 'Quicksand', sans-serif;
   margin: 0;
   padding: 0;
   background-image: url('bg.jpg');
+}
+nav{
+  background-color: #ffae00;
+  padding: 5px;
+  position: sticky;
+  top: 0;
+}
+nav a{
+  font-size: 18px;
+  font-weight: 400;
+  text-decoration: none;
+  color: white;
+}
+nav a:hover{
+  font-weight: bold;
+}
+nav li{
+  display: inline;
+  list-style-type: none;
+  margin-right: 20px;
 }
 table {
     width: 80%;
@@ -36,7 +55,7 @@ header{
 .jumbotron{
     font-size: 20px;
     padding: 60px;
-    background-color: #eb5e00;
+    background-color: #ffa41b;
     text-align: center;
 }
 main{
@@ -48,7 +67,7 @@ main{
 footer{
   padding: 20px;
   color: white;
-  background-color: #d65600;
+  background-color: #ff831d;
   text-align: center;
   font-weight: bold;
   margin-top: 50px;
