@@ -7,8 +7,17 @@
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
+
 <body>
-    <h2>Keranjang Transaksi</h2>
+<header>
+    <div class="jumbotron">
+        <h1>Jajan Kuy</h1>
+        <p></p>
+    </div>
+</header>
+<main>
+<div class="card">
+    <h2>Detail Transaksi</h2>
 <table>
     <tr>
         <td>No.</td>
@@ -24,7 +33,7 @@
         $query = mysqli_query($koneksi, 'SELECT * FROM tbproduk JOIN tbdetail on tbproduk.id_produk=tbdetail.id_produk');
         while ($data = mysqli_fetch_array($query)) {
         ?>
-        
+
             <tr>
                 <?php 
                 $idproduk = $data['id_produk'];
@@ -32,10 +41,11 @@
                 ?>
                 <td><?php echo $n++;?></td>
                 <td><?php echo $data['nama_produk'] ?></td>
-                <td><?php echo $data['harga'] ?></td>
+                <td><?php echo "Rp. ",number_format($data['harga'],0,",",".")?></td>
                 <td><?php echo $data['qty'] ?></td>
-                <td><?php echo $data['subtotal'] ?></td>
+                <td><?php echo "Rp. ",number_format($data['subtotal'],0,",",".")?></td>
                 <td>
+                    <a href="edit.php?id=<?php echo $data['id_produk'];?>">Edit</a>
                     <a href="hapus.php?id=<?php echo $data['id_produk'];?>">Hapus</a>
                 </td>
                 <?php
@@ -59,13 +69,18 @@
             <td></td>
             <td></td>
             <td>
-               <?php echo $total;
+               <?php echo "Rp. ",number_format($total,0,",",".");
             }
             ?></td>
         </tr>
  </table>
-            <br>
-            <a href="menu.php">Lanjut Belanja</a>
-            <a href="pemesanan_berhasil.php">Checkout</a>
+        <br>
+        <a href="menu.php">Lanjut Belanja</a>
+        <a href="insertcheckout.php">Checkout</a>
+        </div>
+    </main>
+    <footer>
+        <p>Copyright &#169; 2022</p>
+    </footer>
 </body>
 </html>
