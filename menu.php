@@ -25,7 +25,6 @@
     <hr>
     <table>
         <?php
-        
         include "koneksi.php";
         $query1 = mysqli_query($koneksi, 'SELECT * FROM tbproduk');
         while ($data1 = mysqli_fetch_assoc($query1)){

@@ -22,6 +22,9 @@
         <?php
         include "koneksi.php";
         $id=$_GET['id'];
+        $nopesanan=$_GET['nopesanan'];
+        $nomeja=$_GET['nomeja'];
+        $date=$_GET['date'];
         $datapesan = mysqli_query($koneksi, 'SELECT * FROM tbproduk where id_produk="'.$id.'"');
         while ($dp = mysqli_fetch_array($datapesan)){
         ?>
@@ -33,7 +36,9 @@
             <input type="hidden" name="id" value=<?php echo $id;?>>
             <input type="hidden" name="nama_produk" value="<?php echo $dp['nama_produk']?>">
             <input type="hidden" name="harga" value=<?php echo $dp['harga']?>>
-            
+            <input type="text" name="nopesanan" value=$nopesanan>
+            <input type="hidden" name="nomeja" value=$nomeja>
+            <input type="hidden" name="date" value=$date>
 					<!-- <a href="pesan.php?id=<?php echo $id;?>"> PESAN </a>  -->
                 <input type="submit" name="submit" value="PESAN">
 	<?php } ?>
