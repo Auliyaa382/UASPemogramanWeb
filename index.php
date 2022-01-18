@@ -34,7 +34,6 @@
         $cek=mysqli_query($koneksi,$query1);
         while ($data=mysqli_fetch_assoc($cek)){
         $nopesanan=$data['no_pesanan'];
-        echo $nopesanan;
         }
         $query = mysqli_query($koneksi, 'SELECT * FROM tbdetail JOIN tbproduk on tbdetail.id_produk=tbproduk.id_produk where tbdetail.no_pesanan="'.$nopesanan.'"');
         while ($data = mysqli_fetch_array($query)) {

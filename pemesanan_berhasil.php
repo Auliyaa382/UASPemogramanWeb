@@ -28,7 +28,12 @@
         <?php
         $n =1;
         include "koneksi.php";
-        $query = mysqli_query($koneksi, 'SELECT * FROM tbproduk JOIN tbdetail on tbproduk.id_produk=tbdetail.id_produk');
+        $query1="SELECT no_pesanan FROM tbpesanan ORDER BY no_pesanan DESC LIMIT 1";
+        $cek=mysqli_query($koneksi,$query1);
+        while ($data=mysqli_fetch_assoc($cek)){
+        $nopesanan=$data['no_pesanan'];
+        }
+        $query = mysqli_query($koneksi, 'SELECT * FROM tbdetail JOIN tbproduk on tbdetail.id_produk=tbproduk.id_produk where tbdetail.no_pesanan="$nopesanan"');
         while ($data = mysqli_fetch_array($query)) {
         ?>
         
