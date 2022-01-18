@@ -15,7 +15,6 @@ while ($data = mysqli_fetch_array($query)) {
 }
 
 $insertpesanan="INSERT INTO tbpesanan (total) VALUES('$total')";
-$update = ($koneksi,"UPDATE tbpesanan set total='$total' where no_pesanan = '$nopesanan'");
     $sql=mysqli_query($koneksi,$insertpesanan);    
         if ($sql){
             echo "<script type='text/javascript'> alert('Pemesanan Berhasil'); window.location='pemesanan_berhasil.php';</script>";
@@ -23,6 +22,8 @@ $update = ($koneksi,"UPDATE tbpesanan set total='$total' where no_pesanan = '$no
             
             echo "<script type='text/javascript'> alert('Pemesanan Gagal'); window.location='menu.php';</script>";
         }	
+        $update = mysqli_query($koneksi,"UPDATE tbpesanan set total='$total' where no_pesanan = '$nopesanan'");
+        $delete = mysqli_query($koneksi,"DELETE FROM tbpesanan where tgl_pesanan='0000-00-00'");
 
 ?>
 

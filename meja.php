@@ -61,7 +61,7 @@ if (isset($_POST['submit'])) {
 						  <option value="B06"> B06 </option>
               <option value="C01"> C01 </option>
 						  <option value="C02"> C02 </option>
-              <option value="C03"> C02 </option>
+              <option value="C03"> C03 </option>
               </select>
               </div>
               <button class="btn btn-outline-light btn-lg px-5" type="submit" name="submit">Next</button>

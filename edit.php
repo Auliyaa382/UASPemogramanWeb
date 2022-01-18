@@ -22,7 +22,12 @@
         <?php
         include "koneksi.php";
         $id=$_GET['id'];
-        $datapesan = mysqli_query($koneksi, 'SELECT * FROM tbproduk JOIN tbdetail on tbproduk.id_produk=tbdetail.id_produk WHERE tbproduk.id_produk="'.$id.'"');
+        $query1="SELECT no_pesanan FROM tbpesanan ORDER BY no_pesanan DESC LIMIT 1";
+        $cek=mysqli_query($koneksi,$query1);
+        while ($data=mysqli_fetch_assoc($cek)){
+        $nopesanan=$data['no_pesanan'];
+        }
+        $datapesan = mysqli_query($koneksi, 'SELECT * FROM tbdetail JOIN tbproduk on tbdetail.id_produk=tbproduk.id_produk WHERE tbdetail.id_produk="'.$id.'" && tbdetail.no_pesanan="'.$nopesanan.'"');
         while ($dp = mysqli_fetch_array($datapesan)){
         ?>
         <form method="POST" action="updatepemesanan.php">

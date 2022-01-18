@@ -16,6 +16,7 @@
     </header>
     <nav>
             <ul>
+                <li><a href="menu.php">Menu</a></li>
                 <li><a href="index.php">Keranjang</a></li>
             </ul>
         </nav>
