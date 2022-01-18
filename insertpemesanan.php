@@ -10,6 +10,11 @@ if(isset($_POST['submit']))
 	$qty=$_POST['qty'];
     $subtotal=$qty*$harga;
 
+    $query1="SELECT no_pesanan FROM tbpesanan ORDER BY no_pesanan DESC LIMIT 1";
+    $cek=mysqli_query($koneksi,$query1);
+    while ($data=mysqli_fetch_assoc($cek)){
+        $nopesanan=$data['no_pesanan'];
+    }
     //membuat id detail    
     $query="SELECT id_detail FROM tbdetail";
     $cekid=mysqli_query($koneksi,$query);
@@ -42,7 +47,7 @@ if(isset($_POST['submit']))
 // $huruf = "DTL";
 // $kodedetail = $huruf . sprintf("%03s", $urutan);
 //simpan data pemesanan
-    $insertpesanan="INSERT INTO tbdetail(id_detail, id_produk, qty, subtotal) VALUES('$iddetail','$id','$qty','$subtotal')";
+    $insertpesanan="INSERT INTO tbdetail(id_detail, id_produk,no_pesanan, qty, subtotal) VALUES('$iddetail','$id','$nopesanan','$qty','$subtotal')";
     $sql=mysqli_query($koneksi,$insertpesanan);    
         if ($sql){
             echo "<script type='text/javascript'> alert('Data pesanan berhasil ditambahkan'); window.location='menu.php';</script>";

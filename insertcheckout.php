@@ -7,9 +7,10 @@ while ($data = mysqli_fetch_array($query)) {
     $idproduk = $data['id_produk'];
     $data['subtotal'] = $data['harga']*$data['qty'];
     $total += $data['subtotal'];
+    $nopesanan = $data['no_pesanan'];
 }
 
-$insertpesanan="INSERT INTO tbpesanan (total) VALUES('$total')";
+$insertpesanan="INSERT INTO tbpesanan (total) VALUES('$total') where no_pesanan='$nopesanan'";
     $sql=mysqli_query($koneksi,$insertpesanan);    
         if ($sql){
             echo "<script type='text/javascript'> alert('Pemesanan Berhasil'); window.location='pemesanan_berhasil.php';</script>";
