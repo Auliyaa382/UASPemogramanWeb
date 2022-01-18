@@ -7,8 +7,8 @@ if(isset($_POST['submit']))
 //mengambil data yang dikirim dari form
     $nomeja=$_POST['no_meja'];
 
-    $querymatpel="SELECT no_pesanan FROM tbpesanan";
-    $cekpesanan=mysqli_query($koneksi,$querymatpel);
+    $query="SELECT no_pesanan FROM tbpesanan";
+    $cekpesanan=mysqli_query($koneksi,$query);
 
     if(!$cekpesanan){
         printf("Error: %s\n", mysqli_error($koneksi));
@@ -39,21 +39,17 @@ if(isset($_POST['submit']))
 // $nopesanan = $huruf . sprintf("%03s", $urutan);
 $date = date("Y-m-d");
 
+// $data=mysqli_query($koneksi,'SELECT * FROM tbpesanan where no_pesanan="'.$nopesanan.'"');
+// $dp=mysqli_num_rows($data);
 //simpan data 
-    $insertdata="INSERT INTO tbpesanan(no_pesanan, no_meja, tgl_pesanan) VALUES('$nopesanan','$nomeja','$date')";
-    $sql=mysqli_query($koneksi,$insertdata); 
+$insertdata="INSERT INTO tbpesanan(no_pesanan, no_meja, tgl_pesanan) VALUES('$nopesanan','$nomeja','$date')";
+$sql=mysqli_query($koneksi,$insertdata); 
+
         if ($sql){
             echo "<script type='text/javascript'> alert('Silahkan pilih menu'); window.location='menu.php';</script>";
         } else {
             echo "<script type='text/javascript'>; window.location='meja.php';</script>";
         }	
-    $data=mysqli_query($koneksi,'SELECT * FROM tbpesanan where no_pesanan="'.$nopesanan.'"');
-    while ($dp = mysqli_fetch_array($data)){?>
-    <form name="myform" action="pesan.php" method="POST">
-        <input type="hidden" name=nopesanan value="<?php echo $dp['no_pesanan']?>">
-        <script language="JavaScript">document.myform.submit();</script>
-<?php
-    }
     } 
 ?>
 
